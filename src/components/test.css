@@ -1,0 +1,286 @@
+/* .pcos-form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.pcos-form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pcos-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.pcos-form label {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.pcos-form input[type="text"],
+.pcos-form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.pcos-form select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.pcos-form input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pcos-form input[type="submit"]:hover {
+  background-color: #3e8e41;
+} */
+
+
+/* .pcos-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+} */
+
+
+/* .pcos-form-container {
+    max-width: 100px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+}
+
+.pcos-form-container h2 {
+    margin-bottom: 20px;
+}
+
+.pcos-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pcos-form label {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.pcos-form input[type="text"],
+.pcos-form input[type="number"] {
+    width: 90px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.pcos-form select {
+    width: 900px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+.pcos-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pcos-form input[type="submit"]:hover {
+    background-color: #3e8e41;
+    border-radius: 5px;
+        padding: 10px 20px;
+        margin-top: 20px;
+        font-size: 16px;
+        cursor: pointer;
+} */
+
+
+/* .pcos-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.pcos-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pcos-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.pcos-form label {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.pcos-form input[type="text"],
+.pcos-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.pcos-form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+.pcos-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pcos-form button[type="submit"]:hover {
+    background-color: #0062cc;
+} */
+
+
+.pcos-form-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+        display: block;
+}
+
+.pcos-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pcos-form {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pcos-form label {
+    margin-bottom: 5px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.pcos-form input[type="text"],
+.pcos-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.pcos-form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    
+}
+
+.pcos-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.pcos-form button[type="submit"]:hover {
+    background-color: #0062cc;
+}
+
+@media only screen and (max-width: 600px) {
+    .pcos-form-container {
+        max-width: 90%;
+    }
+}
