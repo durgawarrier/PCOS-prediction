@@ -10,16 +10,29 @@ const PCOSForm = () => {
   const [acne, setAcne] = useState("");
   const [result, setResult] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const { age, weight, height, periods, hair, acne, result } = 'userData'
     // Perform calculations and prediction based on form inputs here
     // Set the prediction result using setResult
+    fetch('https://pcos-predictor-default-rtdb.firebaseio.com/userDataRecords.json', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        age, weight, height, periods, hair, acne, result,
+      }),
+    }
+    ); 
   };
+
+  
 
   return (
     <div className="pcos-form">
       <h1>PCOS Prediction</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} method="POST">
         <label htmlFor="age">Age:</label>
         <input
           type="number"
@@ -68,7 +81,7 @@ const PCOSForm = () => {
           <option value="severe">Severe</option>
         </select>
 
-        <button type="submit">Predict</button>
+        <button type="submit" >Predict</button>
       </form>
 
       {result && (

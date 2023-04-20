@@ -21,7 +21,7 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/services' component={BookingForm} />
           <Route path='/products' component={Products} />
-          <Route path='/sign-up' component={LoginForm} />
+          <Route path='/sign-up' component={PCOSForm} />
           
 
         </Switch>
