@@ -1,0 +1,25 @@
+import numpy as np
+from flask import Flask, request, jsonify, render_template
+import pickle
+
+# Create flask app
+flask_app = Flask(__name__)
+model = pickle.load(open("model1.pkl", "rb"))
+
+@flask_app.route("/")
+def Home():
+    return render_template("index.html")
+
+@flask_app.route("/predict", methods = ["POST"])
+def predict():
+    float_features = [float(x) for x in request.form.values()]
+    features = [np.array(float_features)]
+    prediction = model.predict_proba(features)[0][1]
+    print(prediction)
+
+    if prediction.any() >= 0.5 :
+        return render_template("index.html", prediction_text = "You are likely by {} % to have PCOS".format(round(prediction*100)))
+    else:
+        return render_template("index.html", prediction_text = "You are not likely to have PCOS")  
+if __name__ == "__main__":
+    flask_app.run(debug=True)

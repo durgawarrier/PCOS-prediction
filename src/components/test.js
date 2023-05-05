@@ -1,84 +1,458 @@
 import React, { useState } from "react";
-import "./test.css";
+import { Form, Button } from "react-bootstrap";
+import axios from "axios";
 
-const PCOSForm = () => {
-  const [age, setAge] = useState("");
-  const [weight, setWeight] = useState("");
-  const [height, setHeight] = useState("");
-  const [periods, setPeriods] = useState("");
-  const [hair, setHair] = useState("");
-  const [acne, setAcne] = useState("");
-  const [result, setResult] = useState("");
+function PCOSform() {
+  const [formData, setFormData] = useState({});
+  const [result, setResult] = useState(null);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Perform calculations and prediction based on form inputs here
-    // Set the prediction result using setResult
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setFormData({ ...formData, [name]: value });
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formData);
+    const response = await axios
+      .post("http://localhost:5000/predict", formData)
+      .then((res) => {
+        console.log(res);
+        setResult(res.data.prediction_text)
+      })
+      .catch((err) => {
+        console.log("Error!! in handleSubmit");
+      });
+    // setResult(response.data.prediction_text);
+  };
+
+  // const handleChange = (event) => {
+  //   setFormData({ ...formData, [event.target.name]: event.target.value });
+  // };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   fetch('/predict', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(formData)
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => setResult(data))
+  //     .catch(error => console.error(error));
+  // };
+
   return (
-    <div className="pcos-form">
-      <h1>PCOS Prediction</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="age">Age:</label>
-        <input
-          type="number"
-          id="age"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
+    <div>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="age">
+          <Form.Label>Age</Form.Label>
+          <Form.Control
+            type="number"
+            name="Age"
+            value={formData.Age}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="weight">
+          <Form.Label>Weight (Kg)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Weight (Kg)"
+            value={formData["Weight (Kg)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="height">
+          <Form.Label>Height (Cm)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Height (Cm)"
+            value={formData["Height (Cm)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="bmi">
+          <Form.Label>BMI</Form.Label>
+          <Form.Control
+            type="number"
+            name="BMI"
+            value={formData.BMI}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="bloodGroup">
+          <Form.Label>Blood Group</Form.Label>
+          <Form.Control
+            type="text"
+            name="Blood Group"
+            value={formData["Blood Group"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="pulseRate">
+          <Form.Label>Pulse rate (bpm)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Pulse rate (bpm)"
+            value={formData["Pulse rate (bpm)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="rr">
+          <Form.Label>RR (breaths/min)</Form.Label>
+          <Form.Control
+            type="number"
+            name="RR (breaths/min)"
+            value={formData["RR (breaths/min)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="hb">
+          <Form.Label>Hb (g/dl)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Hb (g/dl)"
+            value={formData["Hb (g/dl)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
 
-        <label htmlFor="weight">Weight (kg):</label>
-        <input
-          type="number"
-          id="weight"
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-        />
+        <Form.Group controlId="cycle">
+          <Form.Label>Cycle (R/I)</Form.Label>
+          <input
+            type="number"
+            className="form-control"
+            name="Cycle (R/I)"
+            value={formData["Cycle (R/I)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
 
-        <label htmlFor="height">Height (cm):</label>
-        <input
-          type="number"
-          id="height"
-          value={height}
-          onChange={(e) => setHeight(e.target.value)}
-        />
+        <Form.Group controlId="cycleLength">
+          <Form.Label>Cycle length (days)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Cycle length (days)"
+            value={formData["Cycle length (days)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="marriageStatus">
+          <Form.Label>Marriage Status (Yrs)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Marriage Status (Yrs)"
+            value={formData["Marriage Status (Yrs)"]}
+            onChange={handleChange}
+          />
 
-        <label htmlFor="periods">Number of periods per year:</label>
-        <input
-          type="number"
-          id="periods"
-          value={periods}
-          onChange={(e) => setPeriods(e.target.value)}
-        />
+          <Form.Group controlId="pregnant">
+            <Form.Label>Pregnant (Y/N)</Form.Label>
+            <Form.Control
+              type="number"
+              name="Pregnant(Y/N)"
+              value={formData["Pregnant(Y/N)"]}
+              onChange={handleChange}
+              min="0"
+              max="1"
+            />
+          </Form.Group>
+          <Form.Group controlId="num-abortions">
+            <Form.Label>No. of abortions</Form.Label>
+            <Form.Control
+              type="number"
+              name="No. of aborptions"
+              value={formData["No. of aborptions"]}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-        <label htmlFor="hair">Excessive hair growth:</label>
-        <select id="hair" value={hair} onChange={(e) => setHair(e.target.value)}>
-          <option value="none">None</option>
-          <option value="mild">Mild</option>
-          <option value="moderate">Moderate</option>
-          <option value="severe">Severe</option>
-        </select>
+          <Form.Group controlId="ibhcg">
+            <Form.Label>I beta-HCG (mIU/mL)</Form.Label>
+            <Form.Control
+              type="number"
+              name="I beta-HCG(mIU/mL)"
+              value={formData["I beta-HCG(mIU/mL)"]}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-        <label htmlFor="acne">Acne:</label>
-        <select id="acne" value={acne} onChange={(e) => setAcne(e.target.value)}>
-          <option value="none">None</option>
-          <option value="mild">Mild</option>
-          <option value="moderate">Moderate</option>
-          <option value="severe">Severe</option>
-        </select>
+          <Form.Group controlId="iibhcg">
+            <Form.Label>II beta-HCG (mIU/mL)</Form.Label>
+            <Form.Control
+              type="number"
+              name="II beta-HCG(mIU/mL)"
+              value={formData["II beta-HCG(mIU/mL)"]}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-        <button type="submit">Predict</button>
-      </form>
+          <Form.Group controlId="fsh">
+            <Form.Label>FSH (mIU/mL)</Form.Label>
+            <Form.Control
+              type="number"
+              name="FSH(mIU/mL)"
+              value={formData["FSH(mIU/mL)"]}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
+          <Form.Group controlId="lh">
+            <Form.Label>LH (mIU/mL)</Form.Label>
+            <Form.Control
+              type="number"
+              name="LH(mIU/mL)"
+              value={formData["LH(mIU/mL)"]}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="fsh-lh">
+            <Form.Label>FSH/LH</Form.Label>
+            <Form.Control
+              type="number"
+              name="FSH/LH"
+              value={formData["FSH/LH"]}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="hip">
+            <Form.Label>Hip (inch)</Form.Label>
+            <Form.Control
+              type="number"
+              name="Hip(inch)"
+              value={formData["Hip(inch)"]}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="waist">
+            <Form.Label>Waist (inch)</Form.Label>
+            <Form.Control
+              type="number"
+              name="Waist(inch)"
+              value={formData["Waist(inch)"]}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="waist-hip">
+            <Form.Label>Waist:Hip Ratio</Form.Label>
+            <Form.Control
+              type="number"
+              name="Waist:Hip Ratio"
+              value={formData["Waist:Hip Ratio"]}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="tsh">
+            <Form.Label>TSH (mIU/L)</Form.Label>
+            <Form.Control
+              type="number"
+              name="TSH(mIU/L)"
+              value={formData["TSH(mIU/L)"]}
+              onChange={handleChange}
+            />
+          </Form.Group>
+        </Form.Group>
+
+        <Form.Group controlId="amh">
+          <Form.Label>AMH(ng/mL)</Form.Label>
+          <Form.Control
+            type="text"
+            name="AMH(ng/mL)"
+            value={formData["AMH(ng/mL)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="prl">
+          <Form.Label>PRL(ng/mL)</Form.Label>
+          <Form.Control
+            type="text"
+            name="PRL(ng/mL)"
+            value={formData["PRL(ng/mL)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="vitd3">
+          <Form.Label>Vit D3 (ng/mL)</Form.Label>
+          <Form.Control
+            type="text"
+            name="Vit D3 (ng/mL)"
+            value={formData["Vit D3 (ng/mL)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="prg">
+          <Form.Label>PRG(ng/mL)</Form.Label>
+          <Form.Control
+            type="text"
+            name="PRG(ng/mL)"
+            value={formData["PRG(ng/mL)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+
+       
+
+        <Form.Group controlId="weight-gain">
+          <Form.Label>Weight gain(Y/N)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Weight gain(Y/N)"
+            value={formData["Weight gain(Y/N)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="hair-growth">
+          <Form.Label>Hair growth(Y/N)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Hair growth(Y/N)"
+            value={formData["Hair growth(Y/N)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="skin-darkening">
+          <Form.Label>Skin darkening (Y/N)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Skin darkening (Y/N)"
+            value={formData["Skin darkening (Y/N)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="hair-loss">
+          <Form.Label>Hair loss(Y/N)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Hair loss(Y/N)"
+            value={formData["Hair loss(Y/N)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="pimples">
+    <Form.Label>Pimples (Y/N)</Form.Label>
+    <Form.Control
+      type="text"
+      name="Pimples"
+      value={formData.Pimples}
+      onChange={handleChange}
+      pattern="[0-9]*"
+      inputMode="numeric"
+    />
+  </Form.Group>
+
+  <Form.Group controlId="fastfood">
+    <Form.Label>Fast food (Y/N)</Form.Label>
+    <Form.Control
+      type="text"
+      name="Fastfood"
+      value={formData.Fastfood}
+      onChange={handleChange}
+      pattern="[0-9]*"
+      inputMode="numeric"
+    />
+  </Form.Group>
+
+  <Form.Group controlId="exercise">
+    <Form.Label>Regular Exercise (Y/N)</Form.Label>
+    <Form.Control
+      type="text"
+      name="Exercise"
+      value={formData.Exercise}
+      onChange={handleChange}
+      pattern="[0-9]*"
+      inputMode="numeric"
+    />
+  </Form.Group>
+
+        <Form.Group controlId="bpSystolic">
+          <Form.Label>BP Systolic (mmHg)</Form.Label>
+          <Form.Control
+            type="number"
+            name="BP Systolic (mmHg)"
+            value={formData["BP Systolic (mmHg)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="bpDiastolic">
+          <Form.Label>BP Diastolic (mmHg)</Form.Label>
+          <Form.Control
+            type="number"
+            name="BP Diastolic (mmHg)"
+            value={formData["BP Diastolic (mmHg)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="follicleNoL">
+          <Form.Label>Follicle No. (L)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Follicle No. (L)"
+            value={formData["Follicle No. (L)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="follicleNoR">
+          <Form.Label>Follicle No. (R)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Follicle No. (R)"
+            value={formData["Follicle No. (R)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="avgFL">
+          <Form.Label>Avg. F size (L) (mm)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Avg. F size (L) (mm)"
+            value={formData["Avg. F size (L) (mm)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="avgFR">
+          <Form.Label>Avg. F size (R) (mm)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Avg. F size (R) (mm)"
+            value={formData["Avg. F size (R) (mm)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="endometrium">
+          <Form.Label>Endometrium (mm)</Form.Label>
+          <Form.Control
+            type="number"
+            name="Endometrium (mm)"
+            value={formData["Endometrium (mm)"]}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Predict
+        </Button>
+      </Form>
       {result && (
-        <div className="pcos-result">
-          <h3>Prediction Result:</h3>
-          <p>{result}</p>
-        </div>
+        <p className="mt-3">
+          The prediction result is: <strong>{result}</strong>
+        </p>
       )}
     </div>
   );
-};
+}
 
-export default PCOSForm;
+export default PCOSform;

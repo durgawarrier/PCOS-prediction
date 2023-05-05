@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>PCOS Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Age (yrs)" placeholder="Age (yrs)" required="required" />
+        <input type="text" name="Weight (Kg)" placeholder="Weight (Kg)" required="required" />
+		<input type="text" name="Height(Cm)" placeholder="Height(Cm)" required="required" />
+		<input type="text" name="BMI" placeholder="BMI" required="required" />
+    <input type="text" name="Blood Group" placeholder="Blood Group" required="required" />
+    <input type="text" name="Pulse rate(bpm)" placeholder="Pulse rate(bpm)" required="required" />
+    <input type="text" name="RR (breaths/min)" placeholder="RR (breaths/min)" required="required" />
+    <input type="text" name="Hb(g/dl)" placeholder="Hb(g/dl)" required="required" />
+    <input type="text" name="Cycle(R/I)" placeholder="Cycle(R/I)" required="required" />
+    <input type="text" name="Cycle Length(days)" placeholder="Cycle Length(days)" required="required" />
+    <input type="text" name="Marraige Status (Yrs)" placeholder="Marraige Status (Yrs)" required="required" />
+    <input type="text" name="Pregnant(Y/N)" placeholder="Pregnant(Y/N)" required="required" />
+    <input type="text" name="No. of aborptions" placeholder="No. of aborptions" required="required" />
+    <input type="text" name="I beta-HCG(mIU/mL)" placeholder="I beta-HCG(mIU/mL)" required="required" />
+    <input type="text" name="II beta-HCG(mIU/mL)" placeholder="II beta-HCG(mIU/mL)" required="required" />
+    <input type="text" name="FSH(mIU/mL)" placeholder="FSH(mIU/mL)" required="required" />
+    <input type="text" name="LH(mIU/mL)" placeholder="LH(mIU/mL)" required="required" />
+    <input type="text" name="FSH/LH" placeholder="FSH/LH" required="required" />
+    <input type="text" name="Hip(inch)" placeholder="Hip(inch)" required="required" />
+    <input type="text" name="Waist(inch)" placeholder="Waist(inch)" required="required" />
+    <input type="text" name="Waist:Hip Ratio" placeholder="Waist:Hip Ratio" required="required" />
+    <input type="text" name="TSH(mIU/mL)" placeholder="TSH(mIU/mL)" required="required" />
+
+    <input type="text" name="AMG(ng/mL)" placeholder="AMG(ng/mL)" required="required" />
+    <input type="text" name="PRL(ng/mL)" placeholder="PRL(ng/mL)" required="required" />
+    <input type="text" name="Vit D3 (ng/mL)" placeholder="Vit D3 (ng/mL)" required="required" />
+    <input type="text" name="PRG(ng/mL)" placeholder="PRG(ng/mL)" required="required" />
+    <input type="text" name="Weight gain(Y/N)" placeholder="Weight gain(Y/N)" required="required" />
+    <input type="text" name="hair growth(Y/N)" placeholder="hair growth(Y/N)" required="required" />
+    <input type="text" name="Skin darkening (Y/N)" placeholder="Skin darkening (Y/N)" required="required" />
+    <input type="text" name="Hair loss(Y/N)" placeholder="Hair loss(Y/N)" required="required" />
+    <input type="text" name="Pimples(Y/N)" placeholder="Pimples(Y/N)" required="required" />
+    <input type="text" name="Fast food (Y/N)" placeholder="Fast food (Y/N)" required="required" />
+    <input type="text" name="Reg.Exercise(Y/N)" placeholder="Reg.Exercise(Y/N)" required="required" />
+    <input type="text" name="BP _Systolic (mmHg)" placeholder="BP _Systolic (mmHg)" required="required" />
+    <input type="text" name="BP _Diastolic (mmHg)" placeholder="BP _Diastolic (mmHg)" required="required" />
+    <input type="text" name="Follicle No. (L)" placeholder="Follicle No. (L)" required="required" />
+    <input type="text" name="Follicle No. (R)" placeholder="Follicle No. (R)" required="required" />
+    <input type="text" name="Avg. F size (L) (mm)" placeholder="Avg. F size (L) (mm)" required="required" />
+    <input type="text" name="Avg. F size (R) (mm)" placeholder="Avg. F size (R) (mm)" required="required" />
+    <input type="text" name="Endometrium (mm)" placeholder="Endometrium (mm)" required="required" />
+    
+    
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
