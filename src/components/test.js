@@ -19,7 +19,7 @@ function PCOSform() {
       .post("http://localhost:5000/predict", formData)
       .then((res) => {
         console.log(res);
-        setResult(res.data.prediction_text)
+        setResult(res.data[0]);
       })
       .catch((err) => {
         console.log("Error!! in handleSubmit");
@@ -47,12 +47,12 @@ function PCOSform() {
 
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form autoComplete="true" onSubmit={handleSubmit}>
         <Form.Group controlId="age">
           <Form.Label>Age</Form.Label>
           <Form.Control
             type="number"
-            name="Age"
+            name="Age (yrs)"
             value={formData.Age}
             onChange={handleChange}
           />
@@ -70,7 +70,7 @@ function PCOSform() {
           <Form.Label>Height (Cm)</Form.Label>
           <Form.Control
             type="number"
-            name="Height (Cm)"
+            name="Height(Cm)"
             value={formData["Height (Cm)"]}
             onChange={handleChange}
           />
@@ -80,7 +80,7 @@ function PCOSform() {
           <Form.Control
             type="number"
             name="BMI"
-            value={formData.BMI}
+            value={formData["BMI"]}
             onChange={handleChange}
           />
         </Form.Group>
@@ -97,7 +97,7 @@ function PCOSform() {
           <Form.Label>Pulse rate (bpm)</Form.Label>
           <Form.Control
             type="number"
-            name="Pulse rate (bpm)"
+            name="Pulse rate(bpm)"
             value={formData["Pulse rate (bpm)"]}
             onChange={handleChange}
           />
@@ -115,8 +115,8 @@ function PCOSform() {
           <Form.Label>Hb (g/dl)</Form.Label>
           <Form.Control
             type="number"
-            name="Hb (g/dl)"
-            value={formData["Hb (g/dl)"]}
+            name="Hb(g/dl)"
+            value={formData["Hb(g/dl)"]}
             onChange={handleChange}
           />
         </Form.Group>
@@ -126,8 +126,8 @@ function PCOSform() {
           <input
             type="number"
             className="form-control"
-            name="Cycle (R/I)"
-            value={formData["Cycle (R/I)"]}
+            name="Cycle(R/I)"
+            value={formData["Cycle(R/I)"]}
             onChange={handleChange}
           />
         </Form.Group>
@@ -136,8 +136,8 @@ function PCOSform() {
           <Form.Label>Cycle length (days)</Form.Label>
           <Form.Control
             type="number"
-            name="Cycle length (days)"
-            value={formData["Cycle length (days)"]}
+            name="Cycle length(days)"
+            value={formData["Cycle length(days)"]}
             onChange={handleChange}
           />
         </Form.Group>
@@ -145,8 +145,8 @@ function PCOSform() {
           <Form.Label>Marriage Status (Yrs)</Form.Label>
           <Form.Control
             type="number"
-            name="Marriage Status (Yrs)"
-            value={formData["Marriage Status (Yrs)"]}
+            name="Marraige Status (Yrs)"
+            value={formData["Marraige Status (Yrs)"]}
             onChange={handleChange}
           />
 
@@ -255,8 +255,8 @@ function PCOSform() {
             <Form.Label>TSH (mIU/L)</Form.Label>
             <Form.Control
               type="number"
-              name="TSH(mIU/L)"
-              value={formData["TSH(mIU/L)"]}
+              name="TSH (mIU/L)"
+              value={formData["TSH (mIU/L)"]}
               onChange={handleChange}
             />
           </Form.Group>
@@ -302,8 +302,6 @@ function PCOSform() {
           />
         </Form.Group>
 
-       
-
         <Form.Group controlId="weight-gain">
           <Form.Label>Weight gain(Y/N)</Form.Label>
           <Form.Control
@@ -315,11 +313,11 @@ function PCOSform() {
         </Form.Group>
 
         <Form.Group controlId="hair-growth">
-          <Form.Label>Hair growth(Y/N)</Form.Label>
+          <Form.Label>hair growth(Y/N)</Form.Label>
           <Form.Control
             type="number"
-            name="Hair growth(Y/N)"
-            value={formData["Hair growth(Y/N)"]}
+            name="hair growth(Y/N)"
+            value={formData["hair growth(Y/N)"]}
             onChange={handleChange}
           />
         </Form.Group>
@@ -344,56 +342,56 @@ function PCOSform() {
           />
         </Form.Group>
         <Form.Group controlId="pimples">
-    <Form.Label>Pimples (Y/N)</Form.Label>
-    <Form.Control
-      type="text"
-      name="Pimples"
-      value={formData.Pimples}
-      onChange={handleChange}
-      pattern="[0-9]*"
-      inputMode="numeric"
-    />
-  </Form.Group>
+          <Form.Label>Pimples(Y/N)</Form.Label>
+          <Form.Control
+            type="text"
+            name="Pimples(Y/N)"
+            value={formData["Pimples(Y/N)"]}
+            onChange={handleChange}
+            pattern="[0-9]*"
+            inputMode="numeric"
+          />
+        </Form.Group>
 
-  <Form.Group controlId="fastfood">
-    <Form.Label>Fast food (Y/N)</Form.Label>
-    <Form.Control
-      type="text"
-      name="Fastfood"
-      value={formData.Fastfood}
-      onChange={handleChange}
-      pattern="[0-9]*"
-      inputMode="numeric"
-    />
-  </Form.Group>
+        <Form.Group controlId="fastfood">
+          <Form.Label>Fast food (Y/N)</Form.Label>
+          <Form.Control
+            type="text"
+            name="Fast food (Y/N)"
+            value={formData["Fast food (Y/N)"]}
+            onChange={handleChange}
+            pattern="[0-9]*"
+            inputMode="numeric"
+          />
+        </Form.Group>
 
-  <Form.Group controlId="exercise">
-    <Form.Label>Regular Exercise (Y/N)</Form.Label>
-    <Form.Control
-      type="text"
-      name="Exercise"
-      value={formData.Exercise}
-      onChange={handleChange}
-      pattern="[0-9]*"
-      inputMode="numeric"
-    />
-  </Form.Group>
+        <Form.Group controlId="exercise">
+          <Form.Label>Reg.Exercise(Y/N)</Form.Label>
+          <Form.Control
+            type="text"
+            name="Reg.Exercise(Y/N)"
+            value={formData["Reg.Exercise(Y/N)"]}
+            onChange={handleChange}
+            pattern="[0-9]*"
+            inputMode="numeric"
+          />
+        </Form.Group>
 
         <Form.Group controlId="bpSystolic">
-          <Form.Label>BP Systolic (mmHg)</Form.Label>
+          <Form.Label>BP _Systolic (mmHg)</Form.Label>
           <Form.Control
             type="number"
-            name="BP Systolic (mmHg)"
-            value={formData["BP Systolic (mmHg)"]}
+            name="BP _Systolic (mmHg)"
+            value={formData["BP _Systolic (mmHg)"]}
             onChange={handleChange}
           />
         </Form.Group>
         <Form.Group controlId="bpDiastolic">
-          <Form.Label>BP Diastolic (mmHg)</Form.Label>
+          <Form.Label>BP _Diastolic (mmHg)</Form.Label>
           <Form.Control
             type="number"
-            name="BP Diastolic (mmHg)"
-            value={formData["BP Diastolic (mmHg)"]}
+            name="BP _Diastolic (mmHg)"
+            value={formData["BP _Diastolic (mmHg)"]}
             onChange={handleChange}
           />
         </Form.Group>
@@ -448,7 +446,7 @@ function PCOSform() {
       </Form>
       {result && (
         <p className="mt-3">
-          The prediction result is: <strong>{result}</strong>
+          The prediction result is: <strong>{Number(result)*100} %</strong>
         </p>
       )}
     </div>

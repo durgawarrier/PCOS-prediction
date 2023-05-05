@@ -4,7 +4,8 @@ import pandas as pd
 import pickle
 
 
-pcos_df = pd.read_csv('PCOS_data_without_infertility.csv')
+pcos_df = pd.read_csv('src/backend/PCOS_data_without_infertility.csv', encoding='ISO-8859-1')
+
 # Load the data and pre-process
 pcos_df.drop(columns=['Sl. No', 'Patient File No.','RBS(mg/dl)'], inplace=True)
 pcos_df.fillna(pcos_df.median(), inplace=True)
@@ -21,4 +22,6 @@ catboost_model = CatBoostClassifier(
     iterations=1000, learning_rate=0.1, depth=3)
 catboost_model.fit(X_train, y_train)
 
+# Save the model as a pickle file
+pickle.dump(catboost_model, open("model2.pkl", "wb"))
 
