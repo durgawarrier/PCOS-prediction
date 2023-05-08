@@ -21,27 +21,25 @@ function Cards() {
               label='ChatBot'
               path='/services'
             />
+           
+            
           </ul>
-          {/* <ul className='cards__items'>
-            <CardItem
-              src='images/img-3.jpg'
-              text='Set Sail in the Atlantic Ocean visiting Uncharted Waters'
-              label='Mystery'
+          
+          <ul className='cards__items'>
+             <CardItem
+              src='images/woman-choosing-healthy-unhealthy-food.avif'
+              text='Get Personalised diet  NOW'
+              label='Diet'
               path='/services'
             />
+            
             <CardItem
-              src='images/img-4.jpg'
-              text='Experience Football on Top of the Himilayan Mountains'
-              label='Adventure'
-              path='/products'
-            />
-            <CardItem
-              src='images/img-8.jpg'
-              text='Ride through the Sahara Desert on a guided camel tour'
-              label='Adrenaline'
+              src='images/period-track.jpg'
+              text='Track your period NOW'
+              label='PeriodTracker'
               path='/sign-up'
             />
-          </ul> */}
+          </ul>
         </div>
       </div>
     </div>
