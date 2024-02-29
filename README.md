@@ -1,4 +1,4 @@
-#SheCare - Women's Health Platform
+## SheCare - Women's Health Platform
 
 Welcome to SheCare, an innovative solution designed to empower women with personalized health insights and information. Our platform offers a range of features including personalized diet recommendations, menstrual cycle tracking, and informative health articles to support women in managing their health effectively.
 
