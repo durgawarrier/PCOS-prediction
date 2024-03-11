@@ -30,7 +30,7 @@ Users can request the system to predict their PCOS risk and provide recommendati
 - **Algorithm:** Utilized the CatBoost algorithm, along with Python libraries, for accurate PCOS risk prediction.
 
 ## Website Screenshot
-**Home Page** : The landing page when the user first interacts with
+**Home Page** : The landing page where the user first interacts with
 ![HomePage](https://github.com/durgawarrier/pcos-prediction/assets/101460363/ada1afb0-4bfa-4bca-ada0-64121870ce32)
 **Service Page** : All the services avialable to the users are mentioned
 ![ServicePage](https://github.com/durgawarrier/pcos-prediction/assets/101460363/c5498dec-cceb-4979-8863-685ac09be2b6)
