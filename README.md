@@ -24,4 +24,10 @@ Stay informed with our curated collection of health articles covering a wide ran
 
 ## Output Screenshot
 ![HomePage](https://github.com/durgawarrier/pcos-prediction/assets/101460363/ada1afb0-4bfa-4bca-ada0-64121870ce32)
+![ServicePage](https://github.com/durgawarrier/pcos-prediction/assets/101460363/c5498dec-cceb-4979-8863-685ac09be2b6)
+![Predict1](https://github.com/durgawarrier/pcos-prediction/assets/101460363/ba2500c8-1aa9-4d5e-9777-45e282438f4a)
+![Predict2](https://github.com/durgawarrier/pcos-prediction/assets/101460363/a8070b8d-daeb-4e42-a4cd-114d7c5b5372)
+![ChatBot](https://github.com/durgawarrier/pcos-prediction/assets/101460363/54f1acc1-e4c1-408f-bf49-45a40b5f0d8d)
+![PeriodTracker](https://github.com/durgawarrier/pcos-prediction/assets/101460363/775c1ff4-58be-4d52-b481-95fcf86faaf2)
+
 
