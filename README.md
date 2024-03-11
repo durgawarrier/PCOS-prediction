@@ -21,3 +21,7 @@ Stay informed with our curated collection of health articles covering a wide ran
 - **Frontend:** Built with React.js for a seamless and intuitive user experience.
 - **Backend:** Powered by Flask, a lightweight Python web framework, ensuring robustness and scalability.
 - **Algorithm:** Utilized the CatBoost algorithm, along with Python libraries, for accurate PCOS risk prediction.
+
+## Output Screenshot
+![HomePage](https://github.com/durgawarrier/pcos-prediction/assets/101460363/ada1afb0-4bfa-4bca-ada0-64121870ce32)
+
